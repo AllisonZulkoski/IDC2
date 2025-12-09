@@ -1,0 +1,187 @@
+/* overlay text top image */
+.full-screen-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-position: center; /* Align the bottom of the image with the bottom of the container */
+    margin-bottom: 1000px; /* Add 1000px of white space below the image */
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own dimensions */
+    font-family: 'Butler', serif; /* Change font to Butler */
+    font-size: 6rem; /* 2x bigger */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.2em; /* Double spacing between letters */
+    font-weight: 200; /* Confirm ultra light weight */
+}
+
+.subtext {
+    position: absolute;
+    top: calc(25% + 140px); /* Add 20px more space (total 140px) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Smaller font size */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.5em; /* Spacing to stretch the text */
+    width: 100%; /* Ensure it stretches the same width */
+    font-style: italic; /* Make the text italic */
+}
+
+
+.nav-bar {
+    position: fixed; /* Stick the nav-bar to the top */
+    top: 0; /* Start at the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Stretch to the right edge */
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Larger font size */
+    color: #003366; /* Deep blue for the text and dot */
+    text-align: center;
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    z-index: 1000; /* Ensure it stays on top */
+    letter-spacing: 0.3em; /* Elegant spacing between letters */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.nav-bar a {
+    color: #003366; /* Deep blue */
+    text-decoration: none;
+    display: inline-block; /* Ensure scaling works properly */
+    margin: 0 15px; /* Add spacing between items */
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.25) translateX(10px); /* Make the text bigger and shift it slightly */
+    letter-spacing: 0.3em; /* Adjust spacing to match the scaling */
+    text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.nav-bar.scrolled {
+    top: 0; /* Stick to the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Ensure it stretches to the right edge */
+    transform: none; /* Remove translation */
+    font-size: 2rem; /* Increase font size */
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Add semi-transparent white background */
+    width: 100vw; /* Stretch across the entire screen */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.application-video {
+    width: 30%; /* Decrease video size by 50% */
+    display: block;
+    margin: 20px 0; /* Remove horizontal centering */
+    margin-left: 10%; /* Move the video to the left with a 10% margin */
+    margin-top: 1100px;
+}
+
+.spacer {
+    height: 1000px; /* Add 1000px of space below the image */
+}
+
+.text-box-right {
+    position: absolute;
+    top: 1555px; /* Restore original vertical centering */
+    right: 20%; /* Position 10% from the right edge */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 30%; /* Set the width of the text box */
+    height: 870px; /* Set the height to 200px */
+    padding: 20px;
+    background-color: transparent; /* Remove grey background */
+    border: none; /* Remove border */
+    font-family: 'Playfair Display', serif; /* Match the font of IDC2 text */
+    font-size: 1.5rem; /* Restore the original size */
+    color: #808080; /* Medium gray */
+    text-align: left; /* Align the text to the left */
+    font-style: italic;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 1000px; /* Extend the bottom by 1000px */
+}
+
+.text-box-left {
+    position: absolute;
+    top: 1300px; /* Move the text box up by 50px */
+    left: 10%; /* Position 10% from the left edge */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    width: 30%; /* Set the width of the text box */
+    height: auto; /* Adjust height based on content */
+    padding: 20px;
+    background-color: transparent; /* Remove background */
+    border: none; /* Remove border */
+    font-family: 'Playfair Display', serif; /* Match the font of IDC2 text */
+    font-size: 1.5rem; /* Match the font size */
+    color: #808080; /* Medium gray */
+    text-align: left; /* Align the text to the left */
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.text-box-below {
+    position: relative; /* Keep relative positioning */
+    margin: -50px auto; /* Adjust vertical centering */
+    margin-top: 500px; /* Move the section up by 50px */
+    margin-left: 10%; /* Position 10% from the left edge */
+    margin-right: 10%; /* Extend equally on the right */
+    width: auto; /* Adjust width to fill the space */
+    padding: 20px;
+    background-color: transparent; /* Remove grey background */
+    border: none; /* Remove border */
+    font-family: 'Playfair Display', serif; /* Match the font of IDC2 text */
+    font-size: 1.5rem; /* Restore the original size */
+    color: #808080; /* Medium gray */
+    text-align: left; /* Align the text to the left */
+    font-style: italic;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.text-box-below .large-text {
+    font-size: 2.5rem; /* Make the text large */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 10px; /* Add spacing below the text */
+    color: #333; /* Match the text color */
+    text-align: left; /* Align the text to the left */
+}
+
+.large-text {
+    font-size: 2.5rem; /* Make the text large */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 10px; /* Add spacing below the text */
+    color: #333; /* Match the text color */
+    text-align: left; /* Align the text to the left */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    animation: fadeIn 0.5s forwards; /* Trigger fade-in animation */
+}

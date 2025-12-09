@@ -1,0 +1,184 @@
+/* overlay text top image */
+.full-screen-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-position: center; /* Align the bottom of the image with the bottom of the container */
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own dimensions */
+    font-family: 'Butler', serif; /* Change font to Butler */
+    font-size: 6rem; /* 2x bigger */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.2em; /* Double spacing between letters */
+    font-weight: 200; /* Confirm ultra light weight */
+}
+
+.subtext {
+    position: absolute;
+    top: calc(25% + 140px); /* Add 20px more space (total 140px) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Smaller font size */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.5em; /* Spacing to stretch the text */
+    width: 100%; /* Ensure it stretches the same width */
+    font-style: italic; /* Make the text italic */
+}
+
+/* navigation bar */
+.nav-bar {
+    position: fixed; /* Stick the nav-bar to the top */
+    top: 0; /* Start at the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Stretch to the right edge */
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Larger font size */
+    color: #003366; /* Deep blue for the text and dot */
+    text-align: center;
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    z-index: 1000; /* Ensure it stays on top */
+    letter-spacing: 0.3em; /* Elegant spacing between letters */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.nav-bar a {
+    color: #003366; /* Deep blue */
+    text-decoration: none;
+    display: inline-block; /* Ensure scaling works properly */
+    margin: 0 15px; /* Add spacing between items */
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.25) translateX(10px); /* Make the text bigger and shift it slightly */
+    letter-spacing: 0.3em; /* Adjust spacing to match the scaling */
+    text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.nav-bar.scrolled {
+    top: 0; /* Stick to the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Ensure it stretches to the right edge */
+    transform: none; /* Remove translation */
+    font-size: 2rem; /* Increase font size */
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Add semi-transparent white background */
+    width: 100vw; /* Stretch across the entire screen */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.image-container {
+    height: auto; /* Adjust height dynamically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure child elements like .styled-video can use absolute positioning */
+}
+
+.additional-image,
+.text-box,
+.text-box-duplicate {
+    display: none; /* Remove these elements */
+}
+
+body {
+    margin: 0; /* Remove default margins */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.materials-heading {
+    display: none; /* Remove the "Materials" heading */
+}
+
+.styled-image {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-top: 1000; /* Remove the negative margin */
+    margin-left: -50px; /* Move the image 10px to the right */
+}
+
+.styled-image[alt="step4"] {
+    max-width: 20%; /* Maintain size */
+    margin-left: 10px; /* Adjust spacing to fit its position */
+    margin-right: 10px; /* Adjust spacing to fit its position */
+    margin-top: 90px;
+}
+
+.styled-image[alt="step5"] {
+    max-width: 20%; /* Maintain size */
+    margin-left: -750px; /* Adjust spacing to fit its position */
+    margin-right: 10px; /* Adjust spacing to fit its position */
+    margin-top: 900px;
+}
+
+.styled-image[alt="pt1"] {
+    margin-left: -3px; /* Move the image 3px to the left */
+}
+
+.styled-video {
+    max-width: 25%; /* Reduce the width to 75% of its original size */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    position: static; /* Ensure the video is positioned relative to the container */
+}
+
+.styled-video:nth-of-type(1) {
+    margin-left: -20px; /* Move the first video (process.mp4) 20px to the left */
+    transform: translateX(-30px); /* Move the first video (process.mp4) 10px to the left */
+}
+
+.styled-video:nth-of-type(2) {
+    margin-top: 600px; /* Move the second video (testing.mp4) down by 50px */
+    margin-left: 0; /* Reset margin to move the second video back to the right */
+}
+
+.media-container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: left; /* Align the container content to the left */
+    gap: 5px; /* Remove the gap between the image and the videos */
+    margin-top: 1000px; /* Move the photo and video down by 500px */
+    margin-left: -50px; /* Move the container 50px to the left */
+}
+
+.video-container {
+    margin-top: 0; /* Remove extra space to place it directly below */
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+}
+
+.media-container,
+.video-container {
+    margin-bottom: 10px; /* Reduce the space below the containers to 10px */
+}
+
+.code-download-link {
+    position: absolute; /* Change to absolute positioning */
+    top: calc(50% + 140px); /* Match spacing below "The Process" */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Match font size of "IDC2 - Allison Zulkoski" */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.5em; /* Match letter spacing */
+    font-style: italic; /* Make the text italic */
+    text-decoration: none;
+}
+
+.code-download-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}

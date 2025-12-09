@@ -1,0 +1,109 @@
+/* overlay text top image */
+.full-screen-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-position: center; /* Align the bottom of the image with the bottom of the container */
+}
+
+.full-screen-image:last-of-type {
+    margin-top: 1900px;
+    height: auto; /* Maintain natural height */
+    width: auto; /* Maintain natural width */
+    position: relative; /* Prevent cropping */
+    transform: scale(2); /* Increase size by 200% */
+    display: block; /* Ensure block-level behavior */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+.full-screen-image:last-of-type.visible {
+    opacity: 1; /* Fully visible when scrolled into view */
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own dimensions */
+    font-family: 'Butler', serif; /* Change font to Butler */
+    font-size: 6rem; /* 2x bigger */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.2em; /* Double spacing between letters */
+    font-weight: 200; /* Confirm ultra light weight */
+}
+
+.subtext {
+    position: absolute;
+    top: calc(25% + 140px); /* Add 20px more space (total 140px) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Smaller font size */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.5em; /* Spacing to stretch the text */
+    width: 100%; /* Ensure it stretches the same width */
+    font-style: italic; /* Make the text italic */
+}
+
+.nav-bar {
+    position: fixed; /* Stick the nav-bar to the top */
+    top: 0; /* Start at the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Stretch to the right edge */
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Larger font size */
+    color: #003366; /* Deep blue for the text and dot */
+    text-align: center;
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    z-index: 1000; /* Ensure it stays on top */
+    letter-spacing: 0.3em; /* Elegant spacing between letters */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.nav-bar a {
+    color: #003366; /* Deep blue */
+    text-decoration: none;
+    display: inline-block; /* Ensure scaling works properly */
+    margin: 0 15px; /* Add spacing between items */
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.25) translateX(10px); /* Make the text bigger and shift it slightly */
+    letter-spacing: 0.3em; /* Adjust spacing to match the scaling */
+    text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.nav-bar.scrolled {
+    top: 0; /* Stick to the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Ensure it stretches to the right edge */
+    transform: none; /* Remove translation */
+    font-size: 2rem; /* Increase font size */
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Add semi-transparent white background */
+    width: 100vw; /* Stretch across the entire screen */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+body {
+    margin: 0; /* Remove default margins */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+video {
+    display: block; /* Ensure block-level behavior */
+    margin: 800px auto 50px; /* Move down by 50px, center horizontally, and add 50px margin below */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    max-height: 100vh; /* Ensure it doesn't exceed the viewport height */
+    object-fit: contain; /* Ensure the entire video is visible */
+}

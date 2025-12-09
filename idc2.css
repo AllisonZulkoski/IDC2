@@ -1,0 +1,254 @@
+/* overlay text top image */
+.full-screen-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.centered-text {
+    position: absolute;
+    top: calc(25% + 50px); /* Move down 30px more (total 50px) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Butler', serif; /* Change font to Butler */
+    font-size: 6rem; /* 2x bigger */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.2em; /* Double spacing between letters */
+    font-weight: 200; /* Confirm ultra light weight */
+}
+
+.subtext {
+    position: absolute;
+    top: calc(25% + 140px); /* Add 20px more space (total 140px) */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; /* Smaller font size */
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.5em; /* Spacing to stretch the text */
+    width: 100%; /* Ensure it stretches the same width */
+    font-style: italic; /* Make the text italic */
+}
+
+/* navigation bar */
+.nav-bar {
+    position: fixed; /* Make the nav-bar sticky */
+    top: 50%; /* Start in the center of the photo */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #f8f8f8; /* Off-white color */
+    text-align: center;
+    letter-spacing: 0.3em; /* Elegant spacing between letters */
+    white-space: nowrap; /* Prevent wrapping */
+    transition: all 0.3s ease; /* Smooth transition for size and position */
+}
+
+.nav-bar.scrolled {
+    top: 0; /* Stick to the top of the page */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Ensure it stretches to the right edge */
+    transform: none; /* Remove translation */
+    font-size: 2rem; /* Increase font size */
+    padding: 10px 0; /* Add padding for better visibility */
+    background-color: rgba(255, 255, 255, 0.2); /* Add semi-transparent white background */
+    width: 100vw; /* Stretch across the entire screen */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.nav-bar span {
+    display: inline-block; /* Ensure each word is treated individually */
+    transition: transform 0.3s ease, letter-spacing 0.3s ease; /* Smooth scaling and spacing effect */
+    position: relative;
+    letter-spacing: 0.2em; /* Add spacing between letters */
+}
+
+.nav-bar span:hover {
+    transform: scale(1.25); /* Reduce scaling to half the current size */
+    letter-spacing: 0.3em; /* Adjust spacing to match the reduced size */
+}
+
+.nav-bar span:hover::before {
+    content: none; /* Disable the transparent box */
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    display: inline-block; /* Ensure scaling works properly */
+    margin: 0 15px; /* Add spacing between items */
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.25) translateX(10px); /* Make the text bigger and shift it slightly */
+    letter-spacing: 0.3em; /* Adjust spacing to match the scaling */
+    text-decoration: none; /* Ensure no underline appears on hover */
+}
+
+.white-space {
+    height: 100px; /* Keep the height at 30px */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* welcome message */
+.welcome-text {
+    position: absolute;
+    top: calc(100vh + 30px); /* Move 20px up */
+    left: calc(5% - 20px); /* Move 10px more to the left */
+    font-family: 'Butler', serif; /* Use Butler font */
+    font-size: 6rem; /* Match the size of "Rein It In" */
+    color: #003366; /* Deep blue */
+    font-style: italic; /* Italicize the text */
+    font-weight: 200; /* Ultra light weight */
+}
+
+.content-container {
+    display: flex; /* Use flexbox to divide the page */
+    justify-content: space-between; /* Distribute the boxes evenly */
+    align-items: flex-start; /* Align boxes at the top */
+    position: absolute;
+    top: calc(100vh + 200px); /* Move the boxes down by 50px */
+    left: 25%; /* Start the container at 25% of the page width */
+    width: 50%; /* Limit the container width to the center half of the page */
+    padding: 0; /* Remove side padding */
+    gap: 40px; /* Maintain 40px of space between the boxes */
+}
+
+.video-box, .text-box {
+    width: calc(35% - 15px); /* Reduce width to make the boxes narrower */
+    height: 500px; /* Increase height to make the boxes taller */
+    border: none; /* Remove the border */
+}
+
+.video-box {
+    background-color: transparent; /* Remove the gray background */
+    margin-left: auto; /* Ensure it is 40px away from the right bounding box */
+    position: relative; /* Ensure child elements are positioned relative to this box */
+    box-sizing: border-box; /* Include padding and borders in the box's dimensions */
+    transform-origin: top right; /* Keep the top-right corner fixed */
+    transform: scale(2); /* Scale the box to 2x its size */
+    height: 320px; /* Match the height of the right bounding box */
+}
+
+.text-box {
+    background-color: transparent; /* Remove background for the video */
+    margin-right: 0; /* Align with the right edge */
+    width: 360px; /* Set width for a portrait video */
+    height: 640px; /* Set height to match the portrait orientation */
+    border: none; /* Remove the border for the video */
+    object-fit: cover; /* Ensure the video fits nicely within the box */
+    opacity: 1; /* Make the video fully visible */
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+.mission-statement {
+    font-family: 'Playfair Display', serif; /* Match the font of IDC2 text */
+    font-size: 1.5rem; /* Restore the original size */
+    color: #808080; /* Medium gray */
+    text-align: left; /* Align the text to the left */
+    font-style: italic; /* Make the text italic */
+    position: absolute; /* Position the text absolutely within the box */
+    top: 10px; /* Add spacing from the top */
+    left: 10px; /* Add spacing from the left */
+    right: 10px; /* Ensure it doesn't overflow the box */
+    bottom: 10px; /* Ensure it doesn't overflow the box */
+    overflow: hidden; /* Prevent text from overflowing the box */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+.mission-description {
+    font-family: 'Playfair Display', serif; /* Match the font of the mission statement */
+    font-size: 0.75rem; /* Restore the original size */
+    color: #b0b0b0; /* Lighter gray */
+    margin-top: 20px; /* Add spacing below the mission statement */
+    text-align: left; /* Align the text to the left */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* about me */
+.about-me-text {
+    position: absolute;
+    top: calc(200vh + 1100px); /* Position below me1.jpg */
+    right: calc(5% - 20px); /* Position on the right side of the page */
+    font-family: 'Butler', serif; /* Use the same font as the welcome text */
+    font-size: 6rem; /* Match the size of the welcome text */
+    color: #003366; /* Deep blue*/
+    font-style: italic; /* Italicize the text */
+    font-weight: 200; /* Ultra light weight */
+    text-align: right; /* Align the text to the right */
+    /* No parallax effect applied */
+}
+
+.below-video-image {
+    width: 100vw; /* Stretch across the entire viewport width */
+    height: 100vh; /* Stretch across the entire viewport height */
+    object-fit: cover; /* Ensure the image covers the entire area */
+    position: absolute; /* Position it absolutely */
+    top: calc(100% + 800px); /* Move it 100px further down */
+    left: 0; /* Align it to the left edge */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 1.5s ease-in-out; /* Smooth fade-in effect */
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
+.below-video-image.scrolled {
+    opacity: 1; /* Fade in when scrolled into view */
+    background-attachment: fixed; /* Enable parallax scrolling */
+}
+
+.about-me-container {
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack the elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    position: absolute;
+    top: calc(200vh + 1150px); /* Reduce the space further */
+    left: 0; /* Align container to the left edge */
+    width: 100%; /* Stretch container across the page */
+    padding: 0; /* Remove side padding */
+    gap: 20px; /* Maintain spacing between the elements */
+}
+
+.aboutme-statement {
+    font-family: 'Playfair Display', serif; /* Match the font of IDC2 text */
+    font-size: 3.5rem; /* Restore the original size */
+    color: #808080; /* Medium gray */
+    text-align: center; /* Center-align the text */
+    font-style: italic; /* Make the text italic */
+    position: relative; /* Position the text absolutely within the box */
+    padding: 10px; /* Add padding inside the box */
+    overflow: hidden; /* Prevent text from overflowing */
+}
+
+.aboutme-intro {
+    font-family: 'Playfair Display', serif; /* Match the font style */
+    font-size: 1.5rem; /* Set an appropriate font size */
+    color: #808080; /* Medium gray color */
+    text-align: center; /* Center-align the text */
+    font-style: italic; /* Italicize the text */
+    margin-bottom: 50px; /* Add spacing below the text box */
+    padding: 10px; /* Add padding inside the box */
+}
+
+.huhhh-text-box {
+    font-family: 'Playfair Display', serif; /* Match the font of the mission statement */
+    font-size: 1.5rem; /* Restore the original size */
+    color: #b0b0b0; /* Lighter gray */
+    text-align: center; /* Center-align the text */
+    font-style: italic; /* Make the text italic */
+    position: relative; /* Ensure it flows naturally in the layout */
+    padding: 10px; /* Add padding inside the box */
+    overflow: hidden; /* Prevent text from overflowing */
+    margin-top: 20px;
+}
