@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"name": "process",
+			"path": "../OBJECT/process"
+		},
+		{
+			"name": "application",
+			"path": "../OBJECT/application"
+		},
+		{
+			"name": "ideation",
+			"path": "../OBJECT/ideation"
+		},
+		{
+			"name": "IDC2",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "IDC2",
+		"liveServer.settings.port": 5501
+	}
+}
